@@ -1,20 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import PageTitle from './pageTitle'
 
 const CreateUser = () => {
     return (
         <div className="container">
-            <div className="row">
-                <div className="col-sm-12">
-                    <Link
-                        className="btn btn-danger pull-right"
-                        to="/"
-                    >
-                        Cancel
-                    </Link>
-                    <h1>Create User</h1>
-                </div>
-            </div>
+            <PageTitle
+                title="Create User"
+                to="/"
+                btnText="Cancel"
+                btnClass="btn btn-danger pull-right"
+            />
         </div>
     );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 const Header = () => {
     return (
@@ -12,7 +13,12 @@ const Header = () => {
                         <span className="icon-bar"></span>
                         <span className="icon-bar"></span>
                     </button>
-                    <a className="navbar-brand" href="#">User CRUD Demo</a>
+                    <Link
+                       className="navbar-brand" 
+                       to="/"
+                    >
+                        User CRUD Demo
+                    </Link>
                 </div>
 
             </div>
