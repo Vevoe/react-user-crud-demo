@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { Router, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
+import createHistory from 'history/createBrowserHistory'
 import { configureStore } from './config'
-// import configureStore from './configureStore'
 import Header from './components/header'
-import UsersIndex from './components/usersIndex'
-import CreateUser from './components/createUser'
-import EditUser from './components/editUser'
+import UsersIndex from './containers/usersIndex'
+import CreateUser from './containers/createUser'
+import EditUser from './containers/editUser'
 
-const store = configureStore();
+const history = createHistory()
+const store = configureStore(history);
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <BrowserRouter>
+        <Router history={history}>
           <div>
             <Header />
             <Switch>
@@ -23,7 +24,7 @@ class App extends Component {
               <Route path="/" component={UsersIndex}  />
             </Switch>
           </div>
-        </BrowserRouter>
+        </Router>
       </Provider>
     );
   }

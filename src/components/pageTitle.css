@@ -1,0 +1,14 @@
+.page-title-container {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.page-title-container h1 {
+    margin: 0;
+}
+
+.page-title-container .btn {
+    float: right;
+    margin-top: 6px;
+}

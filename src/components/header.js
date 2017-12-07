@@ -17,7 +17,7 @@ const Header = () => {
                        className="navbar-brand" 
                        to="/"
                     >
-                        User CRUD Demo
+                        UserManager<i>Pro</i>
                     </Link>
                 </div>
 

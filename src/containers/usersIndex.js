@@ -1,8 +1,11 @@
 import _ from 'lodash'
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { loadUsers, yolo } from '../actions/users'
-import PageTitle from './pageTitle'
+import './usersIndex.css'
+import { loadUsers } from '../actions/users'
+import PageTitle from '../components/pageTitle'
+import NoUsers from '../components/utils/noUsers'
+import Loading from '../components/utils/loading'
 
 class UsersIndex extends Component {
     componentDidMount() {
@@ -11,11 +14,11 @@ class UsersIndex extends Component {
     
     renderUsers() {
         if (this.props.users.isLoading) {
-            return <div>Loading...</div>
+            return <Loading />
         }
 
         if (_.isEmpty(this.props.users.list)) {
-            return <div>No Users</div>
+            return <NoUsers />
         }
 
         return <div>There are Users</div>
@@ -28,14 +31,11 @@ class UsersIndex extends Component {
                     title="Users"
                     to="/users/create"
                     btnText="Create New User"
-                    btnClass="btn btn-primary pull-right"
+                    btnClass="btn btn-primary"
                 />
 
-                <div className="row">
-                    <div className="col-sm-12">
-                        {this.renderUsers()}
-                    </div>
-                </div>
+                {this.renderUsers()}
+
             </div>
         );
     }
@@ -47,12 +47,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        loadUsers: () => dispatch(loadUsers()),
-        yolo: () => dispatch(yolo())
+        loadUsers: () => dispatch(loadUsers())
     }
 }
-
-// export default UsersIndex = connect(mapStateToProps, mapDispatchToProps)(UsersIndex)
 
 export default UsersIndex = connect(
     mapStateToProps,
