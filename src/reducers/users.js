@@ -25,7 +25,7 @@ const users = (
         case RECEIVE_LOAD_USERS:
             return Object.assign({}, state, {
                 isLoading: false,
-                users: _.mapKeys(action.payload.data, 'id')
+                list: _.mapKeys(action.payload.data, 'id')
             })
         case REQUEST_CREATE_USER:
             return Object.assign({}, state, {

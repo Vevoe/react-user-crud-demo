@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import './usersIndex.css'
 import { loadUsers } from '../actions/users'
 import PageTitle from '../components/pageTitle'
+import UserList from '../components/userList'
 import NoUsers from '../components/utils/noUsers'
 import Loading from '../components/utils/loading'
 
@@ -13,15 +14,16 @@ class UsersIndex extends Component {
     }
     
     renderUsers() {
-        if (this.props.users.isLoading) {
+        const { list, isLoading } = this.props.users
+        if (isLoading) {
             return <Loading />
         }
 
-        if (_.isEmpty(this.props.users.list)) {
+        if (_.isEmpty(list)) {
             return <NoUsers />
         }
 
-        return <div>There are Users</div>
+        return <UserList users={list} />
     }
 
     render() {
