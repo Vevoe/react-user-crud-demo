@@ -3,7 +3,7 @@
 ## Get Started
 
 ```sh
-npm install
 cd react-user-crud-demo
+npm install
 npm start
 ```
